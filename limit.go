@@ -27,7 +27,7 @@ func Limits(limit int, rate time.Duration) (r Limit, err error) {
 	r.limit = limit
 	r.rate = rate
 
-	r.count = make(chan int, 2)
+	r.count = make(chan int, limit)
 
 	go limiter(r)
 
